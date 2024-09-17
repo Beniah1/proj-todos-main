@@ -1,3 +1,94 @@
 body {
-  background: teal;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.gradient-background {
+  background: linear-gradient(45deg, rgb(3, 31, 45), rgb(0, 110, 111), rgb(0, 176, 75));
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-outline-danger:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  display: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-bs-theme="dark"] {
+  --bs-body-color: #fff;
+  --bs-body-bg: #343a40;
+  --bs-card-bg: #212529;
+}
+
+.card {
+  background-color: var(--bs-card-bg);
+}
+
+.form-control {
+  background-color: #495057;
+  color: #fff;
+  border-color: #6c757d;
+}
+
+.form-control::placeholder {
+  color: #adb5bd;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
 }

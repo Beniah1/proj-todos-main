@@ -6,11 +6,10 @@ function UpdateTodoForm({ todo, setEditTodo }) {
   const [editDescription, setEditDescription] = useState(todo.description);
   const { mutate: updateTodo, isPending, isError, error } = useUpdateTodo();
 
-  if (isError) return <p>{error.message}</p>;
+  if (isError) return <p className="text-danger">{error.message}</p>;
 
   function handleSubmit(e) {
     e.preventDefault();
-
     updateTodo(
       { id: todo.id, title: editTitle, description: editDescription },
       {
@@ -22,22 +21,37 @@ function UpdateTodoForm({ todo, setEditTodo }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={editTitle}
-        onChange={(e) => setEditTitle(e.target.value)}
-      />
-      <textarea
-        value={editDescription}
-        onChange={(e) => setEditDescription(e.target.value)}
-        rows={10}
-        cols={30}
-      ></textarea>
-      <button type="submit" disabled={isPending}>
-        {isPending ? `Submitting...` : `Submit`}
-      </button>
-      <button onClick={() => setEditTodo(false)}>Cancel</button>
+    <form onSubmit={handleSubmit} className="mb-3">
+      <div className="mb-3">
+        <input
+          type="text"
+          className="form-control"
+          value={editTitle}
+          onChange={(e) => setEditTitle(e.target.value)}
+          placeholder="Enter title"
+        />
+      </div>
+      <div className="mb-3">
+        <textarea
+          className="form-control"
+          value={editDescription}
+          onChange={(e) => setEditDescription(e.target.value)}
+          rows={3}
+          placeholder="Enter description"
+        ></textarea>
+      </div>
+      <div className="d-flex justify-content-end">
+        <button
+          type="button"
+          className="btn btn-secondary me-2"
+          onClick={() => setEditTodo(false)}
+        >
+          Cancel
+        </button>
+        <button type="submit" className="btn btn-primary" disabled={isPending}>
+          {isPending ? "Updating..." : "Update"}
+        </button>
+      </div>
     </form>
   );
 }

@@ -2,25 +2,39 @@ import { useState } from "react";
 import { useDeleteTodo } from "./useDeleteTodo";
 import UpdateTodoForm from "./UpdateTodoForm";
 
+
 function TodoItem({ todo }) {
   const [editTodo, setEditTodo] = useState(false);
   const { mutate: deleteTodo, isPending, isError, error } = useDeleteTodo();
 
-  if (isError) return <p>{error.message}</p>;
+  if (isError) return <p className="text-danger">{error.message}</p>;
 
   return (
     <>
       {editTodo ? (
         <UpdateTodoForm setEditTodo={setEditTodo} todo={todo} />
       ) : (
-        <li>
-          <h3>{todo.title}</h3>
-          <p>{todo.description}</p>
-          <button onClick={() => setEditTodo(true)}>Update</button>
-          <button onClick={() => deleteTodo(todo.id)} disabled={isPending}>
-            {isPending ? `Deleting` : `Delete`}
-          </button>
-        </li>
+        <div className="list-group-item">
+          <div className="d-flex w-100 justify-content-between align-items-center">
+            <h5 className="mb-1">{todo.title}</h5>
+            <div>
+              <button
+                className="btn btn-sm btn-outline-primary me-2"
+                onClick={() => setEditTodo(true)}
+              >
+                Update
+              </button>
+              <button
+                className="btn btn-sm btn-outline-danger"
+                onClick={() => deleteTodo(todo.id)}
+                disabled={isPending}
+              >
+                {isPending ? `Deleting` : `Delete`}
+              </button>
+            </div>
+          </div>
+          <p className="mb-1">{todo.description}</p>
+        </div>
       )}
     </>
   );

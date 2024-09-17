@@ -3,13 +3,16 @@ import { useLogout } from "../users/useLogout";
 function Logout() {
   const { mutate: logout, isPending, isError, error } = useLogout();
 
-  if (isError) return <p>{error.message}</p>;
+  if (isError) return <p className="text-danger">{error.message}</p>;
+
   return (
-    <div>
-      <button onClick={logout} disabled={isPending}>
-        {isPending ? `Loging out...` : `Logout`}
-      </button>
-    </div>
+    <button 
+      onClick={logout} 
+      disabled={isPending}
+      className="btn btn-outline-danger"
+    >
+      {isPending ? "Logging out..." : "Logout"}
+    </button>
   );
 }
 

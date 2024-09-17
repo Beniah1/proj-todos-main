@@ -1,11 +1,12 @@
 import { useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Logout from "../users/Logout";
-// import { useAddTodos } from "./useAddTodos";
 import { useUser } from "../users/useUser";
 import { useSearchParams } from "react-router-dom";
 import User from "../users/User";
 import Todos from "./Todos";
 import TodoForm from "./TodoForm";
+import DarkModeToggle from '../../components/DarkModeToggle';
 
 function TodoDashboard() {
   // const [title, setTitle] = useState("");
@@ -38,32 +39,28 @@ function TodoDashboard() {
   // }
 
   return (
-    <div>
-      <h1>Todo Dashboard</h1>
-      <User />
-      <Logout />
-      <br />
-      <TodoForm />
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <br />
-        <textarea
-          rows={10}
-          cols={30}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
-        <br />
-        <button type="submit" disabled={isPending}>
-          {isPending ? `Adding Todo...` : `Add Todo`}
-        </button>
-      </form> */}
-      {user?.id && <Todos />}
+    <div className="gradient-background min-vh-100 d-flex align-items-center">
+      <div className="container py-5">
+        <div className="row justify-content-center">
+          <div className="col-md-5">
+            <div className="card shadow">
+              <div className="card-body">
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                  <h1 className="mb-0">Todo Dashboard</h1>
+                  <DarkModeToggle />
+                </div>
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                  <User />
+                  <Logout />
+                </div>
+                <hr className="mb-4" />
+                <TodoForm />
+                {user?.id && <Todos />}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
