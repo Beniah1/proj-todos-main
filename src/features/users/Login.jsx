@@ -9,8 +9,6 @@ function Login() {
   const { mutate: login, isPending, isError, error } = useLogin();
   const navigate = useNavigate();
 
-  if (isError) return <p className="text-danger">{error.message}</p>;
-
   function handleSubmit(e) {
     e.preventDefault();
     if (!email) return;
@@ -52,6 +50,7 @@ function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+              {isError && <p className="text-danger">{error.message}</p>}
               <button type="submit" className="btn btn-primary w-100" disabled={isPending}>
                 {isPending ? "Logging in..." : "Login"}
               </button>

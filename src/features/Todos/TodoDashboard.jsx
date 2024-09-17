@@ -1,64 +1,42 @@
-import { useState } from "react";
-import { useLogin } from "./useLogin";
-import DarkModeToggle from "../../components/DarkModeToggle";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Logout from "../users/Logout";
+import { useUser } from "../users/useUser";
+import { useSearchParams } from "react-router-dom";
+import User from "../users/User";
+import Todos from "./Todos";
+import TodoForm from "./TodoForm";
+import DarkModeToggle from '../../components/DarkModeToggle';
+import Login from "../users/Login"; // Ensure you import the Login component
 
-function Login() {
-  const [email, setEmail] = useState("beniah@example.com");
-  const [password, setPassword] = useState("12345678");
-  const { mutate: login, isPending, isError, error } = useLogin();
-  const navigate = useNavigate();
+function TodoDashboard() {
+  const { user } = useUser();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  if (isError) return <p className="text-danger">{error.message}</p>;
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (!email) return;
-    login(
-      { email, password },
-      {
-        onSuccess: () => {
-          navigate("/dashboard");
-        },
-      }
-    );
+  if (!user) {
+    return <Login />; // Render Login if user is not logged in
   }
 
   return (
-    <div className="bg-dark text-white min-vh-100 d-flex align-items-center">
-      <div className="auth-container">
-        <div className="card shadow">
-          <div className="card-body">
-            <div className="d-flex justify-content-between align-items-center mb-4">
-              <h2 className="mb-0">Login</h2>
-              <DarkModeToggle />
+    <div className="gradient-background min-vh-100 d-flex align-items-center">
+      <div className="container py-5">
+        <div className="row justify-content-center">
+          <div className="col-md-8">
+            <div className="card shadow">
+              <div className="card-body">
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                  <h1 className="mb-0">Todo Dashboard</h1>
+                  <DarkModeToggle />
+                </div>
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                  <User />
+                  <Logout />
+                </div>
+                <hr className="mb-4" />
+                <TodoForm />
+                {user?.id && <Todos />}
+              </div>
             </div>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="mb-3">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-              <button type="submit" className="btn btn-primary w-100" disabled={isPending}>
-                {isPending ? "Logging in..." : "Login"}
-              </button>
-            </form>
-            <p className="mt-3 text-center">
-              Don't have an account? <Link to="/">Sign up</Link>
-            </p>
           </div>
         </div>
       </div>
@@ -66,4 +44,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default TodoDashboard;

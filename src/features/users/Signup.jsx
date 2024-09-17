@@ -36,7 +36,8 @@ function Signup() {
         <div className="card shadow">
           <div className="card-body">
             <div className="d-flex justify-content-between align-items-center mb-4">
-              <h2 className="mb-0">Sign Up</h2>
+              <div style={{ width: '40px' }}></div>
+              <h2 className="mb-0 flex-grow-1 text-center">Sign Up</h2>
               <DarkModeToggle />
             </div>
             <form onSubmit={handleSubmit}>
