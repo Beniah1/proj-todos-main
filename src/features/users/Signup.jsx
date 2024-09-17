@@ -71,7 +71,7 @@ function Signup() {
                 {isPending ? "Signing up..." : "Sign Up"}
               </button>
             </form>
-            <p className="mt-3 text-center">
+            <p className="mt-3 text-center text-muted">
               Already have an account? <Link to="/login">Login</Link>
             </p>
           </div>
