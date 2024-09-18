@@ -14,7 +14,7 @@ function TodoItem({ todo }) {
       {editTodo ? (
         <UpdateTodoForm setEditTodo={setEditTodo} todo={todo} />
       ) : (
-        <div className="list-group-item">
+        <div className="list-group-item p-3 mb-2 shadow-sm">
           <div className="d-flex w-100 justify-content-between align-items-center">
             <h5 className="mb-1">{todo.title}</h5>
             <div>

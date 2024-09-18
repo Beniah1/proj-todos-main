@@ -27,4 +27,10 @@
 .list-group-item {
   max-width: 100%;
   word-wrap: break-word;
+  border-radius: 0.25rem;
+}
+
+/* Add hover effect to buttons */
+.btn-outline-primary:hover, .btn-outline-danger:hover {
+  color: #fff;
 }
