@@ -1,3 +1,8 @@
+/* // Global styles
+// Defines gradient background
+// Sets up light and dark theme variables
+// Styles for auth pages and form elements */
+
 .gradient-background {
   background: linear-gradient(45deg, rgb(3, 31, 45), rgb(0, 110, 111), rgb(0, 176, 75));
   background-size: 200% 200%;

@@ -7,8 +7,12 @@ function Logout() {
 
   return (
     <div>
-      <button onClick={logout} disabled={isPending}>
-        {isPending ? `Loging out...` : `Logout`}
+      <button 
+        className="btn btn-outline-danger" 
+        onClick={logout} 
+        disabled={isPending}
+      >
+        {isPending ? `Logging out...` : `Logout`}
       </button>
     </div>
   );

@@ -39,3 +39,7 @@ function App() {
 }
 
 export default App;
+
+// Main app component
+// Sets up routing and query client
+// Renders different pages based on URL
