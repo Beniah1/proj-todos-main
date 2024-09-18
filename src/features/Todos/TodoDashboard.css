@@ -1,9 +1,11 @@
+/* Gradient background for the entire dashboard */
 .gradient-background {
   background: linear-gradient(45deg, rgb(3, 31, 45), rgb(0, 110, 111), rgb(0, 176, 75));
   background-size: 200% 200%;
   animation: gradientAnimation 15s ease infinite;
 }
 
+/* Animation for the gradient background */
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -16,10 +18,12 @@
   }
 }
 
+/* Card styling with a semi-transparent white background */
 .card {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+/* Ensure list items wrap text properly */
 .list-group-item {
   max-width: 100%;
   word-wrap: break-word;
