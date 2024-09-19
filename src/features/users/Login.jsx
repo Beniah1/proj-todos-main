@@ -28,7 +28,7 @@ function Login() {
         <div className="card shadow">
           <div className="card-body">
             <div className="d-flex justify-content-between align-items-center mb-4">
-              <h2 className="mb-0">Login</h2>
+              <h2 className="mb-0 mx-auto">Login</h2> {/* Centered Login text */}
               <DarkModeToggle />
             </div>
             <form onSubmit={handleSubmit}>
