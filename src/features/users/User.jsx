@@ -4,31 +4,17 @@ import { useEffect, useState } from "react";
 import { useGetUser } from "./useGetUser";
 
 function User() {
-  const { data, isLoading, isError, error } = useGetUser();
-  const {
-    user,
-    isLoading: isLoading1,
-    isError: isError1,
-    error: error1,
-  } = useUser();
+  const { data, isLoading, isError } = useGetUser();
+  const { user, isLoading: isLoading1, isError: isError1 } = useUser();
   const [searchParams, setSearchParams] = useSearchParams();
-
   const [imageUrl, setImageUrl] = useState(null);
 
-  useEffect(
-    function () {
-      if (data) {
-        searchParams.set("user_id", data.id);
-        setSearchParams(searchParams);
-      }
-    },
-    [searchParams, setSearchParams, data]
-  );
-
-  if (isLoading || isLoading1)
-    return <p className="text-muted">Loading user...</p>;
-  if (isError || isError1)
-    return <p className="text-danger">{error.message || error1.message}</p>;
+  useEffect(() => {
+    if (data && data.id) {
+      searchParams.set("user_id", data.id);
+      setSearchParams(searchParams);
+    }
+  }, [searchParams, setSearchParams, data]);
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -40,6 +26,13 @@ function User() {
       reader.readAsDataURL(file);
     }
   };
+
+  if (isLoading || isLoading1) {
+    return <p className="text-muted">Loading user...</p>;
+  }
+
+  const userName = data?.fullname ? data.fullname.split(" ")[0] : "Guest";
+  const userEmail = user?.email || "Email not available";
 
   return (
     <div className="d-flex align-items-center">
@@ -54,11 +47,8 @@ function User() {
         <span className="me-2">👤</span>
       )}
       <div>
-        {/* <div>{user?.fullname || "Guest"}</div> old code by Beniah*/}
-        <div>
-          {data ? `Welcome, ${data.fullname.split(" ").at(0)}!` : "Guest"}
-        </div>
-        <div className="text-muted small">{user?.email}</div>
+        <div>{`Welcome, ${userName}!`}</div>
+        <div className="text-muted small">{userEmail}</div>
       </div>
       <input
         type="file"

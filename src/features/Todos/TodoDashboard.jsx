@@ -26,7 +26,7 @@ function TodoDashboard() {
             <div className="card shadow"> {/* Card with shadow effect */}
               <div className="card-body">
                 <div className="d-flex justify-content-between align-items-center mb-4">
-                  <h1 className="mb-0">Todo Dashboard</h1>
+                  <h1 className="mb-0 text-center w-100">Todo Dashboard</h1>
                   <DarkModeToggle /> {/* Dark mode toggle button */}
                 </div>
                 <div className="d-flex justify-content-between align-items-center mb-4">
