@@ -1,17 +1,13 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateTodos } from "../../services/apiTodos";
-import { useSearchParams } from "react-router-dom";
+import { updateTodo as updateTodoApi } from "../../services/apiTodos";
 
 export function useUpdateTodo() {
   const queryClient = useQueryClient();
-  const [searchParams] = useSearchParams();
-
-  const todoId = Number(searchParams.get("user_id"));
 
   const { mutate, isPending, isError, error } = useMutation({
-    mutationFn: updateTodos,
+    mutationFn: updateTodoApi,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["todos", todoId] });
+      queryClient.invalidateQueries({ queryKey: ["todos"] });
     },
   });
 

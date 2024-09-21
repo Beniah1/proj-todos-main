@@ -20,22 +20,22 @@ function TodoDashboard() {
 
   return (
     <div className="gradient-background min-vh-100 d-flex align-items-center">
-      <div className="container-fluid py-5"> {/* Full-width container with padding */}
+      <div className="container py-5">
         <div className="row justify-content-center">
-          <div className="col-11 col-md-10 col-lg-9 col-xl-4"> {/* Responsive column widths */}
-            <div className="card shadow"> {/* Card with shadow effect */}
-              <div className="card-body">
+          <div className="col-12 col-md-10 col-lg-8 col-xl-6">
+            <div className="card shadow-lg rounded-3">
+              <div className="card-body p-4">
                 <div className="d-flex justify-content-between align-items-center mb-4">
-                  <h1 className="mb-0 text-center w-100">Todo Dashboard</h1>
-                  <DarkModeToggle /> {/* Dark mode toggle button */}
+                  <h1 className="h3 mb-0 text-primary">Todo Dashboard</h1>
+                  <DarkModeToggle />
                 </div>
                 <div className="d-flex justify-content-between align-items-center mb-4">
-                  <User /> {/* User information */}
-                  <Logout /> {/* Logout button */}
+                  <User />
+                  <Logout />
                 </div>
                 <hr className="mb-4" />
-                <TodoForm /> {/* Form to add new todos */}
-                {user?.id && <Todos />} {/* List of todos if user is logged in */}
+                <TodoForm />
+                {user?.id && <TodoList />}
               </div>
             </div>
           </div>

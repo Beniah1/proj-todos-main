@@ -1,11 +1,39 @@
-/* Gradient background for the entire dashboard */
-.gradient-background {
-  background: linear-gradient(45deg, rgb(3, 31, 45), rgb(0, 110, 111), rgb(0, 176, 75));
+body.dark {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+.card {
+  transition: background-color 0.3s ease;
+}
+
+body.dark .card {
+  background-color: #2d3748;
+  color: #e2e8f0;
+}
+
+body.dark .form-control,
+body.dark .btn-outline-secondary {
+  background-color: #4a5568;
+  color: #e2e8f0;
+  border-color: #718096;
+}
+
+body.dark .nav-tabs .nav-link {
+  color: #e2e8f0;
+}
+
+body.dark .nav-tabs .nav-link.active {
+  background-color: #2d3748;
+  color: #fff;
+  border-color: #718096 #718096 #2d3748;
+}
+
+.bg-gradient-to-r {
   background-size: 200% 200%;
   animation: gradientAnimation 15s ease infinite;
 }
 
-/* Animation for the gradient background */
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -16,21 +44,4 @@
   100% {
     background-position: 0% 50%;
   }
-}
-
-/* Card styling with a semi-transparent white background */
-.card {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-/* Ensure list items wrap text properly */
-.list-group-item {
-  max-width: 100%;
-  word-wrap: break-word;
-  border-radius: 0.25rem;
-}
-
-/* Add hover effect to buttons */
-.btn-outline-primary:hover, .btn-outline-danger:hover {
-  color: #fff;
 }

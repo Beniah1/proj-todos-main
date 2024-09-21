@@ -32,14 +32,13 @@ function Signup() {
 
   return (
     <div className="gradient-background min-vh-100 d-flex align-items-center">
-      <div className="auth-container">
-        <div className="card shadow">
-          <div className="card-body">
-            <div className="d-flex justify-content-between align-items-center mb-4">
-              <div style={{ width: '40px' }}></div>
-              <h2 className="mb-0 flex-grow-1 text-center">Sign Up</h2>
-              <DarkModeToggle />
-            </div>
+  <div className="auth-container">
+    <div className="card shadow">
+      <div className="card-body">
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <h2 className="mb-0 mx-auto">Sign Up</h2>
+          <DarkModeToggle />
+        </div>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <input

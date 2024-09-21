@@ -35,19 +35,32 @@ function User() {
   const userEmail = user?.email || "Email not available";
 
   return (
-    <div className="d-flex align-items-center">
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt="User"
-          className="rounded-circle me-2"
-          style={{ width: "40px", height: "40px" }}
-        />
-      ) : (
-        <span className="me-2">👤</span>
-      )}
+    // Change the color fo the box aroud the usesr email and picure 
+    <div className="d-flex align-items-center bg-dark rounded p-2">
+      <div className="position-relative me-3">
+        {imageUrl ? (
+          <img
+            src={imageUrl}
+            alt="User"
+            className="rounded-circle"
+            style={{ width: "50px", height: "50px", objectFit: "cover" }}
+          />
+        ) : (
+          <div className="bg-secondary rounded-circle d-flex justify-content-center align-items-center" style={{ width: "50px", height: "50px" }}>
+            <span className="text-white fs-4">👤</span>
+          </div>
+        )}
+        <label
+          htmlFor="imageUpload"
+          className="position-absolute bottom-0 end-0 bg-primary rounded-circle d-flex justify-content-center align-items-center"
+          style={{ width: "20px", height: "20px", cursor: "pointer" }}
+        >
+          <span className="text-white fs-6">+</span>
+        </label>
+      </div>
+      {/* TODO: This div has a white background in dark mode. Update the className to support dark mode. */}
       <div>
-        <div>{`Welcome, ${userName}!`}</div>
+        <div className="fw-bold">{`Welcome, ${userName}!`}</div>
         <div className="text-muted small">{userEmail}</div>
       </div>
       <input
@@ -57,12 +70,6 @@ function User() {
         className="d-none"
         id="imageUpload"
       />
-      <label
-        htmlFor="imageUpload"
-        className="btn btn-sm btn-outline-secondary ms-2"
-      >
-        Add Image
-      </label>
     </div>
   );
 }
