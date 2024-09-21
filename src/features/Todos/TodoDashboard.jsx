@@ -13,6 +13,16 @@ import Login from "../users/Login"; // Ensure you import the Login component
 function TodoDashboard() {
   const { user } = useUser();
   const [searchParams, setSearchParams] = useSearchParams();
+  useEffect(
+    function () {
+      if (user) {
+        searchParams.set("userId", user.id);
+        setSearchParams(searchParams);
+      }
+
+    },
+    [searchParams, setSearchParams, user]
+  );
 
   if (!user) {
     return <Login />; // Render Login if user is not logged in
@@ -35,7 +45,7 @@ function TodoDashboard() {
                 </div>
                 <hr className="mb-4" />
                 <TodoForm />
-                {/* {user?.id && <TodoList />} */}
+                {user?.id && <Todos />}
               </div>
             </div>
           </div>
