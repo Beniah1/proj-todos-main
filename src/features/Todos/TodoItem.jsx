@@ -1,13 +1,25 @@
 import { useState } from "react";
 import { useDeleteTodo } from "./useDeleteTodo";
+import { useUpdateTodo } from "./useUpdateTodo";
 import UpdateTodoForm from "./UpdateTodoForm";
-
 
 function TodoItem({ todo }) {
   const [editTodo, setEditTodo] = useState(false);
-  const { mutate: deleteTodo, isPending, isError, error } = useDeleteTodo();
+  const [isCompleted, setIsCompleted] = useState(todo.completed || false);
+  const { mutate: deleteTodo, isPending: isDeleting, isError: isDeleteError, error: deleteError } = useDeleteTodo();
+  const { mutate: updateTodo, isPending: isUpdating, isError: isUpdateError, error: updateError } = useUpdateTodo();
 
-  if (isError) return <p className="text-danger">{error.message}</p>;
+  if (isDeleteError) return <p className="text-danger">{deleteError.message}</p>;
+  if (isUpdateError) return <p className="text-danger">{updateError.message}</p>;
+
+  const handleComplete = () => {
+    const updatedTodo = { ...todo, completed: !isCompleted };
+    updateTodo(updatedTodo, {
+      onSuccess: () => {
+        setIsCompleted(!isCompleted);
+      },
+    });
+  };
 
   return (
     <>
@@ -16,8 +28,14 @@ function TodoItem({ todo }) {
       ) : (
         <div className="list-group-item p-3 mb-2 shadow-sm">
           <div className="d-flex w-100 justify-content-between align-items-center">
-            <h5 className="mb-1">{todo.title}</h5>
+            <h5 className={`mb-1 ${isCompleted ? 'text-decoration-line-through' : ''}`}>{todo.title}</h5>
             <div>
+              <button
+                className={`btn btn-sm ${isCompleted ? 'btn-outline-secondary' : 'btn-outline-success'} me-2`}
+                onClick={handleComplete}
+              >
+                {isCompleted ? 'Undo' : 'Complete'}
+              </button>
               <button
                 className="btn btn-sm btn-outline-primary me-2"
                 onClick={() => setEditTodo(true)}
@@ -27,13 +45,13 @@ function TodoItem({ todo }) {
               <button
                 className="btn btn-sm btn-outline-danger"
                 onClick={() => deleteTodo(todo.id)}
-                disabled={isPending}
+                disabled={isDeleting}
               >
-                {isPending ? `Deleting` : `Delete`}
+                {isDeleting ? 'Deleting' : 'Delete'}
               </button>
             </div>
           </div>
-          <p className="mb-1">{todo.description}</p>
+          <p className={`mb-1 ${isCompleted ? 'text-decoration-line-through' : ''}`}>{todo.description}</p>
         </div>
       )}
     </>
