@@ -17,31 +17,38 @@ body.dark .btn-outline-secondary {
   background-color: #4a5568;
   color: #e2e8f0;
   border-color: #718096;
-}
 
-body.dark .nav-tabs .nav-link {
-  color: #e2e8f0;
-}
-
-body.dark .nav-tabs .nav-link.active {
-  background-color: #2d3748;
-  color: #fff;
-  border-color: #718096 #718096 #2d3748;
-}
-
-.bg-gradient-to-r {
-  background-size: 200% 200%;
-  animation: gradientAnimation 15s ease infinite;
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
+  body.dark .nav-tabs .nav-link {
+    color: #e2e8f0;
   }
-  50% {
-    background-position: 100% 50%;
+
+  body.dark .nav-tabs .nav-link.active {
+    background-color: #2d3748;
+    color: #fff;
+    border-color: #718096 #718096 #2d3748;
   }
-  100% {
-    background-position: 0% 50%;
+
+  .bg-gradient-to-r {
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
   }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+.apple-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
