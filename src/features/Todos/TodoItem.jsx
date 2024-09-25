@@ -32,11 +32,11 @@ function TodoItem({ todo }) {
   return (
     <div className="card mb-3 shadow-sm">
       <div className="card-body">
-        <div className="d-flex justify-content-between align-items-center mb-2">
-          <h5 className={`card-title mb-0 ${isCompleted ? 'text-muted text-decoration-line-through' : ''}`}>
+        <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-2">
+          <h5 className={`card-title mb-2 mb-sm-0 ${isCompleted ? 'text-muted text-decoration-line-through' : ''}`} style={{ wordBreak: 'break-word' }}>
             {todo.title}
           </h5>
-          <div className="btn-group">
+          <div className="btn-group d-none d-md-flex">
             <button
               className={`btn btn-sm ${isCompleted ? 'btn-outline-secondary' : 'btn-outline-success'}`}
               onClick={handleComplete}
@@ -59,9 +59,31 @@ function TodoItem({ todo }) {
             </button>
           </div>
         </div>
-        <p className={`card-text ${isCompleted ? 'text-muted text-decoration-line-through' : ''}`}>
+        <p className={`card-text mb-3 ${isCompleted ? 'text-muted text-decoration-line-through' : ''}`}>
           {todo.description}
         </p>
+        <div className="d-flex d-md-none flex-column flex-sm-row justify-content-start align-items-start">
+          <button
+            className={`btn btn-sm ${isCompleted ? 'btn-outline-secondary' : 'btn-outline-success'} me-sm-2 mb-2 mb-sm-0`}
+            onClick={handleComplete}
+            disabled={isUpdating}
+          >
+            {isUpdating ? 'Updating...' : isCompleted ? 'Undo' : 'Complete'}
+          </button>
+          <button
+            className="btn btn-sm btn-outline-primary me-sm-2 mb-2 mb-sm-0"
+            onClick={() => setEditTodo(true)}
+          >
+            Update
+          </button>
+          <button
+            className="btn btn-sm btn-outline-danger mb-2 mb-sm-0"
+            onClick={handleDelete}
+            disabled={isDeleting}
+          >
+            {isDeleting ? 'Deleting...' : 'Delete'}
+          </button>
+        </div>
       </div>
     </div>
   );
