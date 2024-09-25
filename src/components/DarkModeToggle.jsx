@@ -8,10 +8,13 @@ function DarkModeToggle() {
 
   useEffect(() => {
     const html = document.documentElement;
+    const body = document.body;
     if (isDarkMode) {
       html.setAttribute('data-bs-theme', 'dark');
+      body.classList.add('dark');
     } else {
       html.setAttribute('data-bs-theme', 'light');
+      body.classList.remove('dark');
     }
     localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
   }, [isDarkMode]);

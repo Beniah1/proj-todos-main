@@ -1,54 +1,116 @@
-body.dark {
-  background-color: #1a202c;
-  color: #e2e8f0;
+/* Gradient background for the entire dashboard */
+.gradient-background {
+  background: linear-gradient(-45deg, #2ecc71, #27ae60, #1abc9c, #16a085);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
 }
 
+/* Keyframes for the gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Card styling with glassmorphism effect for light mode */
 .card {
-  transition: background-color 0.3s ease;
-}
-
-body.dark .card {
-  background-color: #2d3748;
-  color: #e2e8f0;
-}
-
-body.dark .form-control,
-body.dark .btn-outline-secondary {
-  background-color: #4a5568;
-  color: #e2e8f0;
-  border-color: #718096;
-
-  body.dark .nav-tabs .nav-link {
-    color: #e2e8f0;
-  }
-
-  body.dark .nav-tabs .nav-link.active {
-    background-color: #2d3748;
-    color: #fff;
-    border-color: #718096 #718096 #2d3748;
-  }
-
-  .bg-gradient-to-r {
-    background-size: 200% 200%;
-    animation: gradientAnimation 15s ease infinite;
-  }
-
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-}
-.apple-card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 10px;
+  border: none;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
+
+/* Hover effect for cards */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+}
+
+/* Button styling */
+.btn {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Form control styling */
+.form-control {
+  border: 2px solid #ced4da;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #2c3e50;
+}
+
+/* Form control focus effect */
+.form-control:focus {
+  border-color: #2ecc71;
+  box-shadow: 0 0 0 0.2rem rgba(46, 204, 113, 0.25);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Dark mode: Gradient background */
+body.dark .gradient-background {
+  background: linear-gradient(-45deg, #1e8449, #196f3d, #117864, #0e6655);
+}
+
+/* Dark mode: Card styling */
+body.dark .card {
+  background-color: rgba(31, 41, 55, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Dark mode: Form control styling */
+body.dark .form-control {
+  background-color: rgba(44, 62, 80, 0.8);
+  border-color: #34495e;
+  color: #ecf0f1;
+}
+
+/* Dark mode: Form control focus effect */
+body.dark .form-control:focus {
+  border-color: #27ae60;
+  box-shadow: 0 0 0 0.2rem rgba(39, 174, 96, 0.25);
+  background-color: rgba(44, 62, 80, 0.9);
+}
+
+/* Text color for light mode */
+.card, .form-control {
+  color: #2c3e50;
+}
+
+/* Text color for dark mode */
+body.dark .card, body.dark .form-control {
+  color: #ecf0f1;
+}
+
+/* Placeholder color */
+.form-control::placeholder {
+  color: rgba(44, 62, 80, 0.7);
+}
+
+body.dark .form-control::placeholder {
+  color: rgba(236, 240, 241, 0.7);
+}
+
+/* Todo Dashboard and Add New Todo styling */
+.todo-dashboard {
+  background-color: #FFB6C1;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* .add-new-todo {
+  background-color: #27ae60;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+} */
+

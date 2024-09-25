@@ -30,8 +30,8 @@ function TodoForm() {
       <div className="mb-3">
         <input
           type="text"
-          className="form-control"
-          placeholder="Enter title"
+          className="form-control form-control-lg"
+          placeholder="Enter todo title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -40,16 +40,24 @@ function TodoForm() {
         <textarea
           className="form-control"
           rows={3}
-          placeholder="Enter description"
+          placeholder="Enter todo description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
       </div>
-      <button type="submit" className="btn btn-primary" disabled={isPending}>
-        {isPending ? `Adding Todo...` : `Add Todo`}
+      <button type="submit" className="btn btn-primary btn-lg w-100" disabled={isPending}>
+        {isPending ? (
+          <>
+            <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            Adding Todo...
+          </>
+        ) : (
+          'Add Todo'
+        )}
       </button>
     </form>
   );
+
 }
 
 export default TodoForm;
