@@ -52,7 +52,10 @@ function User() {
             style={{ width: "50px", height: "50px", objectFit: "cover" }}
           />
         ) : (
-          <div className="bg-secondary rounded-circle d-flex justify-content-center align-items-center" style={{ width: "50px", height: "50px" }}>
+          <div
+            className="bg-secondary rounded-circle d-flex justify-content-center align-items-center"
+            style={{ width: "50px", height: "50px" }}
+          >
             <span className="text-white fs-4">👤</span>
           </div>
         )}
