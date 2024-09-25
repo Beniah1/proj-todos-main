@@ -10,6 +10,7 @@ import Todos from "./Todos";
 import TodoForm from "./TodoForm";
 import DarkModeToggle from '../../components/DarkModeToggle';
 import Login from "../users/Login";
+import Logo from '../../assets/Logo.png';
 
 function TodoDashboard() {
   // Get the current user and search params
@@ -33,11 +34,12 @@ function TodoDashboard() {
   return (
     <div className="gradient-background min-vh-100 d-flex flex-column">
       {/* Header section */}
-      <header className="bg-body-tertiary shadow-sm py-4 transition-bg">
+      <header className="bg-body-tertiary shadow-sm py-3 transition-bg">
         <div className="container">
           <div className="row align-items-center">
-            {/* Dashboard title */}
-            <div className="col">
+            {/* Logo and Dashboard title */}
+            <div className="col d-flex align-items-center">
+              <img src={Logo} alt="Todo App Logo" className="me-3" style={{ height: '60px', width: 'auto' }} />
               <h1 className="h2 mb-0 fw-bold text-primary">Todo Dashboard</h1>
             </div>
             {/* User component */}
@@ -75,7 +77,6 @@ function TodoDashboard() {
                   {user?.id && <Todos />}
                 </div>
               </div>
-
             </div>
           </div>
         </div>
