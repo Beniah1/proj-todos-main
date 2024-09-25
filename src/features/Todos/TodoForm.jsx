@@ -45,16 +45,16 @@ function TodoForm() {
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
       </div>
-      <button type="submit" className="btn btn-primary btn-lg w-100" disabled={isPending}>
-        {isPending ? (
-          <>
-            <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-            Adding Todo...
-          </>
-        ) : (
-          'Add Todo'
-        )}
-      </button>
+      <button type="submit" className="btn btn-custom-color btn-lg w-100" disabled={isPending}>
+  {isPending ? (
+    <>
+      <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+      Adding Todo...
+    </>
+  ) : (
+    'Add Todo'
+  )}
+</button>
     </form>
   );
 

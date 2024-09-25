@@ -114,3 +114,83 @@ body.dark .form-control::placeholder {
   margin-bottom: 20px;
 } */
 
+/* Header styling */
+.bg-body-tertiary {
+  transition: background-color 0.3s ease, color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Light mode: Header with white blur effect */
+body:not(.dark) .bg-body-tertiary {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1) !important;
+  color: #333333 !important;
+}
+
+/* Dark mode: Keep existing styles */
+body.dark .bg-body-tertiary {
+  background-color: rgba(31, 41, 55, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
+  color: #ffffff !important;
+}
+
+body.dark .text-primary {
+  color: #27ae60 !important;
+}
+
+body.dark .btn-outline-danger {
+  color: #ff6b6b !important;
+  border-color: #ff6b6b !important;
+}
+
+body.dark .btn-outline-danger:hover {
+  color: #ffffff !important;
+  background-color: #ff6b6b !important;
+}
+
+/* Button styling starts here */
+.btn-custom-color {
+  background-color: #117bfd;
+ 
+  color: #ffffff;
+}
+
+.btn-custom-color:hover, .btn-custom-color:focus {
+  background-color: #105cba;
+  
+  color: #ffffff;
+}
+
+body.dark .btn-custom-color {
+  background-color: #27ae60;
+ 
+}
+
+body.dark .btn-custom-color:hover, body.dark .btn-custom-color:focus {
+  background-color: #198b49;
+ 
+}
+
+/* body.dark .todo-dashboard.card {
+  background-color: #2c3e50 !important;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+} */
+
+body:not(.dark) .todo-dashboard.card {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(198, 50, 50, 0.18);
+  transition: all 0.3s ease;
+}
+
+body:not(.dark) .todo-dashboard.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+}
