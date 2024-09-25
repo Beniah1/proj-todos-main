@@ -14,6 +14,42 @@ This React-based Todo Dashboard application provides a comprehensive task manage
 - Gradient Background with Animation 🌈
 - Glassmorphism Effect on Cards 🔍
 
+## Demo
+
+<div align="center">
+  
+<img src="./src/assets/Demo-Day-ToDo (2).png" width="600" alt="Todo Dashboard">
+<img src="./src/assets/Demo-Day-ToDo (3).png" width="600" alt="Todo Dashboard">
+<img src="./src/assets/Demo-Day-ToDo (1).png" width="600" alt="Todo Dashboard">
+  
+  <br>
+  <button onclick="previousImage()">Previous</button>
+  <button onclick="nextImage()">Next</button>
+</div>
+
+<script>
+let currentImageIndex = 0;
+const images = document.querySelectorAll('div[align="center"] > img');
+
+function showImage(index) {
+  images.forEach((img, i) => {
+    img.style.display = i === index ? 'block' : 'none';
+  });
+}
+
+function nextImage() {
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  showImage(currentImageIndex);
+}
+
+function previousImage() {
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  showImage(currentImageIndex);
+}
+
+showImage(currentImageIndex);
+</script>
+
 ## Components
 
 ### User Management
@@ -39,13 +75,11 @@ typescript:src/features/Todos/TodoItem.jsx
 startLine: 6
 endLine: 68
 
-
 - `UpdateTodoForm`: Allows users to edit existing todos 🔄
 
 typescript:src/features/Todos/UpdateTodoForm.jsx
 startLine: 4
 endLine: 69
-
 
 ### Utilities
 
@@ -93,7 +127,6 @@ src/
 │ └── useGetTodos.js
 └── App.jsx
 
-
 ## Styling
 
 The application uses a combination of Bootstrap and custom CSS for styling:
@@ -107,7 +140,6 @@ The application uses a combination of Bootstrap and custom CSS for styling:
 typescript:src/features/Todos/TodoDashboard.css
 startLine: 1
 endLine: 194
-
 
 ## Contributing
 
