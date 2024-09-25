@@ -60,7 +60,7 @@ function TodoDashboard() {
         <div className="container">
           <div className="row justify-content-center">
             {/* Reduced width: col-lg-6 instead of col-lg-8 */}
-            <div className="col-12 col-md-8 col-lg-5">
+            <div className="col-12 col-md-8 col-lg-7">
               {/* Todo dashboard card */}
               <div className="todo-dashboard card shadow-lg rounded-3 overflow-hidden">
                 <div className="card-body p-4">
