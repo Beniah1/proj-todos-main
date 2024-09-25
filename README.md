@@ -1,79 +1,118 @@
-# Todo Dashboard Application
+# Todo Dashboard Application 📝✨
 
 ## Overview
 
-This React-based Todo Dashboard application provides a comprehensive task management system with user authentication. It features a clean, responsive UI with dark mode support, and utilizes modern React practices and hooks.
+This React-based Todo Dashboard application provides a comprehensive task management system with user authentication. It features a clean, responsive UI with dark mode support, and utilizes modern React practices and hooks. 🚀
 
 ## Key Features
 
-- User Authentication (Signup, Login, Logout)
-- Todo Management (Add, View, Edit, Delete)
-- Dark Mode Toggle
-- Responsive Design
-- User Profile with Image Upload
+- User Authentication (Signup, Login, Logout) 🔐
+- Todo Management (Add, View, Edit, Delete, Mark as Complete) ✅
+- Dark Mode Toggle 🌙
+- Responsive Design 📱💻
+- User Profile Display 👤
+- Gradient Background with Animation 🌈
+- Glassmorphism Effect on Cards 🔍
 
 ## Components
 
 ### User Management
 
-- `Signup`: Allows new users to create an account
-- `Login`: Handles user authentication
-- `Logout`: Enables users to sign out
-- `User`: Displays user information and allows profile image upload
+- `Signup`: Allows new users to create an account 📝
+- `Login`: Handles user authentication 🔑
+- `Logout`: Enables users to sign out 👋
+- `User`: Displays user information 👤
 
 ### Todo Management
 
-- `TodoDashboard`: Main component that renders the todo list and form
-- `Todos`: Displays the list of todos
-- `TodoForm`: Allows users to add new todos
+- `TodoDashboard`: Main component that renders the todo list and form 📊
+
+typescript:src/features/Todos/TodoDashboard.jsx
+startLine: 14
+endLine: 85
+
+- `Todos`: Displays the list of todos 📋
+- `TodoForm`: Allows users to add new todos ➕
+- `TodoItem`: Renders individual todo items with options to complete, update, or delete ✏️
+
+typescript:src/features/Todos/TodoItem.jsx
+startLine: 6
+endLine: 68
+
+
+- `UpdateTodoForm`: Allows users to edit existing todos 🔄
+
+typescript:src/features/Todos/UpdateTodoForm.jsx
+startLine: 4
+endLine: 69
+
 
 ### Utilities
 
-- `DarkModeToggle`: Toggles between light and dark mode
+- `DarkModeToggle`: Toggles between light and dark mode 🌓
 
 ## Technologies Used
 
-- React
-- React Router for navigation
-- React Query for state management and API calls
-- Bootstrap for styling
-- Custom hooks for authentication and user management
+- React ⚛️
+- React Router for navigation 🧭
+- React Query for state management and API calls 🔄
+- Bootstrap for styling 🎨
+- Custom CSS for advanced styling and animations ✨
+- Custom hooks for authentication, user management, and todo operations 🎣
 
 ## Getting Started
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Start the development server:
-   - If using Create React App: `npm start`
-   - If using Vite or a similar modern build tool: `npm run dev`
-
-Make sure to use the appropriate command based on your project setup. The `npm run dev` command is commonly used with Vite and other modern build tools, while `npm start` is typically used with Create React App.
+1. Clone the repository 📂
+2. Install dependencies: `npm install` 📦
+3. Start the development server: `npm run dev` 🚀
 
 ## Project Structure
 
-```
 src/
 ├── components/
-│   └── DarkModeToggle.jsx
+│ └── DarkModeToggle.jsx
 ├── features/
-│   ├── Todos/
-│   │   ├── TodoDashboard.jsx
-│   │   ├── Todos.jsx
-│   │   └── TodoForm.jsx
-│   └── users/
-│       ├── Login.jsx
-│       ├── Signup.jsx
-│       ├── User.jsx
-│       ├── useLogin.js
-│       ├── useSignup.js
-│       └── useUser.js
-└── App.js
-```
+│ ├── Todos/
+│ │ ├── TodoDashboard.jsx
+│ │ ├── TodoDashboard.css
+│ │ ├── Todos.jsx
+│ │ ├── TodoForm.jsx
+│ │ ├── TodoItem.jsx
+│ │ ├── UpdateTodoForm.jsx
+│ │ ├── useAddTodos.js
+│ │ ├── useDeleteTodo.js
+│ │ └── useUpdateTodo.js
+│ └── users/
+│ ├── Login.jsx
+│ ├── Signup.jsx
+│ ├── User.jsx
+│ ├── Logout.jsx
+│ ├── useLogin.js
+│ ├── useSignup.js
+│ ├── useUser.js
+│ └── useGetTodos.js
+└── App.jsx
+
+
+## Styling
+
+The application uses a combination of Bootstrap and custom CSS for styling:
+
+- Gradient background with animation 🌈
+- Glassmorphism effect on cards 🔍
+- Custom button styles 🎨
+- Responsive design for various screen sizes 📱💻
+- Dark mode support 🌙
+
+typescript:src/features/Todos/TodoDashboard.css
+startLine: 1
+endLine: 194
+
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request. 🤝
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 📄
